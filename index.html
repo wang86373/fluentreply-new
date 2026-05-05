@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FluentReply Test</title>
+</head>
+<body>
+  <h2>Translation Test</h2>
+
+  <textarea id="input" placeholder="Enter text"></textarea>
+  <br><br>
+  <button onclick="run()">Translate</button>
+
+  <pre id="output"></pre>
+
+<script>
+async function run(){
+  const text = document.getElementById("input").value;
+
+  const res = await fetch("/.netlify/functions/translate", {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify({text})
+  });
+
+  const data = await res.json();
+  document.getElementById("output").innerText = JSON.stringify(data,null,2);
+}
+</script>
+</body>
+</html>
