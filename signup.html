@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Sign up - FluentReply</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:#f5f7fb;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100vh;
+}
+
+.card{
+  width:100%;
+  max-width:420px;
+  background:white;
+  border-radius:20px;
+  padding:30px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+h1{margin-bottom:10px}
+
+input{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border-radius:10px;
+  border:1px solid #ccc;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  margin-top:14px;
+  border:none;
+  border-radius:999px;
+  background:#1a73e8;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.secondary{
+  background:transparent;
+  border:1px solid #ccc;
+  color:#333;
+}
+
+.status{
+  margin-top:10px;
+  font-size:14px;
+}
+
+.error{color:red}
+.success{color:green}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Create account</h1>
+  <p>Sign up with email</p>
+
+  <input id="email" placeholder="Email" />
+  <input id="password" type="password" placeholder="Password" />
+
+  <button onclick="signup()">Sign up</button>
+
+  <button class="secondary" onclick="location.href='login.html'">
+    Already have account
+  </button>
+
+  <div id="status" class="status"></div>
+</div>
+
+<script>
+const supabase = window.supabase.createClient(
+  "https://smwclefrunxnzzjammnu.supabase.co",
+  "sb_publishable_DWI3c__Tq7P9z7GSJqhT6g_dzKxwMrb"
+);
+
+function msg(t,c=""){
+  const el=document.getElementById("status");
+  el.className="status "+c;
+  el.innerText=t;
+}
+
+async function signup(){
+  const email=document.getElementById("email").value;
+  const password=document.getElementById("password").value;
+
+  if(!email||!password){
+    msg("Missing info","error");
+    return;
+  }
+
+  msg("Creating account...");
+
+  const {error}=await supabase.auth.signUp({
+    email,
+    password
+  });
+
+  if(error){
+    msg(error.message,"error");
+    return;
+  }
+
+  msg("Success! Check your email","success");
+}
+</script>
+
+</body>
+</html>
