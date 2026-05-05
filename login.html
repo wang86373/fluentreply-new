@@ -7,10 +7,20 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
+*{box-sizing:border-box}
+:root{
+  --bg:#f5f7fb;--card:#fff;--text:#111827;--muted:#64748b;--border:#d1d5db;
+  --soft:#f1f5ff;--blue:#1a73e8;--dark:#0f2b46;
+}
+body.dark{
+  --bg:#0f172a;--card:#111827;--text:#e5e7eb;--muted:#94a3b8;--border:#334155;
+  --soft:#1e293b;--blue:#60a5fa;--dark:#2563eb;
+}
 body{
   margin:0;
   font-family:Arial;
-  background:#f5f7fb;
+  background:var(--bg);
+  color:var(--text);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -20,47 +30,39 @@ body{
 .card{
   width:100%;
   max-width:420px;
-  background:white;
-  border-radius:20px;
-  padding:30px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:28px;
 }
 
-h1{
-  margin-bottom:10px;
-}
+h1{margin:0 0 10px}
+.sub{color:var(--muted);margin-bottom:20px}
 
 input{
   width:100%;
-  padding:12px;
   margin-top:10px;
-  border-radius:10px;
-  border:1px solid #ccc;
+  padding:12px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:var(--card);
+  color:var(--text)
 }
 
 button{
   width:100%;
-  padding:12px;
   margin-top:14px;
+  padding:12px;
   border:none;
   border-radius:999px;
-  background:#1a73e8;
-  color:white;
   font-weight:bold;
-  cursor:pointer;
+  cursor:pointer
 }
 
-.secondary{
-  background:transparent;
-  border:1px solid #ccc;
-  color:#333;
-}
+.primary{background:var(--blue);color:white}
+.secondary{background:transparent;border:1px solid var(--border)}
 
-.status{
-  margin-top:10px;
-  font-size:14px;
-}
-
+.status{margin-top:12px;font-size:14px}
 .error{color:red}
 .success{color:green}
 </style>
@@ -70,12 +72,18 @@ button{
 
 <div class="card">
   <h1>Login</h1>
-  <p>Sign in to your account</p>
+  <p class="sub">Sign in with password or email code</p>
 
   <input id="email" placeholder="Email" />
   <input id="password" type="password" placeholder="Password" />
 
-  <button onclick="login()">Login</button>
+  <button class="primary" onclick="login()">Login</button>
+
+  <button class="secondary" onclick="sendCode()">Send Code</button>
+
+  <input id="code" placeholder="Enter code" />
+
+  <button class="primary" onclick="verify()">Verify Code</button>
 
   <button class="secondary" onclick="location.href='signup.html'">
     Create account
@@ -100,28 +108,46 @@ async function login(){
   const email=document.getElementById("email").value;
   const password=document.getElementById("password").value;
 
-  if(!email||!password){
-    msg("Missing info","error");
-    return;
-  }
+  if(!email||!password){msg("Missing info","error");return;}
 
   msg("Logging in...");
+  const {error}=await supabase.auth.signInWithPassword({email,password});
 
-  const {error}=await supabase.auth.signInWithPassword({
+  if(error){msg(error.message,"error");return;}
+
+  msg("Success","success");
+  setTimeout(()=>location.href="index.html",800);
+}
+
+async function sendCode(){
+  const email=document.getElementById("email").value;
+  if(!email){msg("Enter email","error");return;}
+
+  msg("Sending...");
+  const {error}=await supabase.auth.signInWithOtp({email});
+
+  if(error){msg(error.message,"error");return;}
+
+  msg("Code sent","success");
+}
+
+async function verify(){
+  const email=document.getElementById("email").value;
+  const code=document.getElementById("code").value;
+
+  if(!email||!code){msg("Missing","error");return;}
+
+  msg("Verifying...");
+  const {error}=await supabase.auth.verifyOtp({
     email,
-    password
+    token:code,
+    type:"email"
   });
 
-  if(error){
-    msg(error.message,"error");
-    return;
-  }
+  if(error){msg(error.message,"error");return;}
 
-  msg("Success!","success");
-
-  setTimeout(()=>{
-    location.href="index.html";
-  },800);
+  msg("Success","success");
+  setTimeout(()=>location.href="index.html",800);
 }
 </script>
 
