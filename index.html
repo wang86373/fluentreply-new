@@ -18,7 +18,7 @@ body.dark{
 }
 body{margin:0;font-family:Arial,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}
 .header{min-height:72px;background:var(--card);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:14px 34px;gap:12px;flex-wrap:wrap}
-.logo{font-size:24px;font-weight:900;color:var(--blue);cursor:pointer}
+.logo{font-size:24px;font-weight:900;color:var(--blue)}
 .header-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .header button,.header select{border:none;background:transparent;color:var(--muted);cursor:pointer;font-size:14px}
 .auth-btn{border:1px solid var(--border)!important;border-radius:12px;padding:9px 15px!important;background:var(--card)!important;color:var(--text)!important}
@@ -106,7 +106,7 @@ summary{cursor:pointer;font-weight:900}
 
 <body>
 <header class="header">
-  <div class="logo" onclick="location.href='index.html'">FluentReply</div>
+  <div class="logo">FluentReply</div>
   <div class="header-actions">
     <select id="themeSelect" onchange="changeTheme()">
       <option value="light">Light</option>
@@ -139,8 +139,8 @@ summary{cursor:pointer;font-weight:900}
 
 <main class="app">
   <section class="hero">
-    <h1 data-i18n="heroTitle">Translate Smarter, Not Harder</h1>
-    <p data-i18n="heroText">DeepL + AI powered translation with sentence-level alternatives.</p>
+    <h1>Translate Smarter, Not Harder</h1>
+    <p>DeepL + AI powered translation with sentence-level alternatives.</p>
     <div class="hero-cta">
       <button class="primary-cta" onclick="input.focus()">Start Translating 🚀</button>
       <button class="secondary-cta" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">View Plans</button>
@@ -268,7 +268,7 @@ summary{cursor:pointer;font-weight:900}
         <h3>Free</h3>
         <div class="plan-price">$0</div>
         <ul>
-          <li>100 translations</li>
+          <li>200 translations</li>
           <li>Basic usage</li>
           <li>Local history</li>
         </ul>
@@ -305,9 +305,18 @@ summary{cursor:pointer;font-weight:900}
     <p>Built for people who need natural, usable translations — not stiff machine output.</p>
 
     <div class="feature-wrap">
-      <div class="feature"><strong>⚡ Fast workflow</strong><span>Translate full messages quickly with cached results and clean UI.</span></div>
-      <div class="feature"><strong>🧠 DeepL + AI</strong><span>Use DeepL for precision and AI for natural expressions and alternatives.</span></div>
-      <div class="feature"><strong>🎯 Sentence control</strong><span>Click translated sentences to choose more natural wording.</span></div>
+      <div class="feature">
+        <strong>⚡ Fast workflow</strong>
+        <span>Translate full messages quickly with cached results and clean UI.</span>
+      </div>
+      <div class="feature">
+        <strong>🧠 DeepL + AI</strong>
+        <span>Use DeepL for precision and AI for natural expressions and alternatives.</span>
+      </div>
+      <div class="feature">
+        <strong>🎯 Sentence control</strong>
+        <span>Click translated sentences to choose more natural wording.</span>
+      </div>
     </div>
   </section>
 
@@ -325,7 +334,9 @@ summary{cursor:pointer;font-weight:900}
     Privacy note: Your text is sent only to generate translation results. Do not enter passwords, banking details, or private identification information.
   </section>
 
-  <div class="footer-note">© FluentReply · AI translation for natural communication</div>
+  <div class="footer-note">
+    © FluentReply · AI translation for natural communication
+  </div>
 </main>
 
 <script>
@@ -359,30 +370,36 @@ const glossaryList = document.getElementById("glossaryList");
 const i18n = {
   English:{
     history:"History",login:"Login",signup:"Sign up",sync:"Sync UI",
-    heroTitle:"Translate Smarter, Not Harder",
-    heroText:"DeepL + AI powered translation with sentence-level alternatives.",
+    heroTitle:"AI Translation with DeepL Precision",
+    heroText:"Fast full-message translation with sentence-level alternatives.",
     engineLabel:"Translation engine:",sentenceMode:"Sentence mode",autoDetect:"Auto detect",
     clear:"Clear",copy:"Copy",waiting:"Waiting",placeholder:"Translation will appear here",
+    translateFile:"Translate Files",translateVoice:"Translate Voice",normalMode:"Normal",
+    newsTranslator:"News Translator",headlineRewriter:"Headline Rewriter",vocabHelper:"Vocabulary Helper",
     glossarySummary:"📚 Glossary",addTerm:"Add term",
     privacyText:"Privacy note: Your text is sent only to generate translation results. Do not enter passwords, banking details, or private identification information."
   },
   "Simplified Chinese":{
     history:"历史记录",login:"登录",signup:"注册",sync:"同步界面",
-    heroTitle:"更聪明地翻译，而不是更费力",
-    heroText:"DeepL + AI 翻译，并支持每句多种自然表达。",
+    heroTitle:"结合 DeepL 精准度的 AI 翻译",
+    heroText:"快速整段翻译，并支持每句多种表达。",
     engineLabel:"翻译引擎：",sentenceMode:"分句模式",autoDetect:"自动检测",
     clear:"清空",copy:"复制",waiting:"等待输入",placeholder:"翻译结果会显示在这里",
+    translateFile:"翻译文件",translateVoice:"语音翻译",normalMode:"普通翻译",
+    newsTranslator:"新闻翻译",headlineRewriter:"标题优化",vocabHelper:"关键词解释",
     glossarySummary:"📚 自定义词库",addTerm:"添加词条",
     privacyText:"隐私提示：您的文本仅用于生成翻译结果。请不要输入密码、银行信息或私人身份信息。"
   },
   Japanese:{
     history:"履歴",login:"ログイン",signup:"登録",sync:"UI同期",
-    heroTitle:"よりスマートに翻訳",
-    heroText:"DeepL + AI 翻訳と文ごとの自然な別表現。",
+    heroTitle:"DeepL精度を備えたAI翻訳",
+    heroText:"高速な全文翻訳と文ごとの別表現に対応。",
     engineLabel:"翻訳エンジン：",sentenceMode:"文単位モード",autoDetect:"自動検出",
     clear:"クリア",copy:"コピー",waiting:"待機中",placeholder:"翻訳結果がここに表示されます",
+    translateFile:"ファイル翻訳",translateVoice:"音声翻訳",normalMode:"通常",
+    newsTranslator:"ニュース翻訳",headlineRewriter:"見出しリライト",vocabHelper:"語彙ヘルパー",
     glossarySummary:"📚 用語集",addTerm:"用語を追加",
-    privacyText:"プライバシー注記：入力テキストは翻訳結果の生成にのみ使用されます。"
+    privacyText:"プライバシー注記：入力テキストは翻訳結果の生成にのみ使用されます。パスワード、銀行情報、個人識別情報は入力しないでください。"
   }
 };
 
@@ -392,42 +409,118 @@ function browserUILang(){
   if(lang.startsWith("ja")) return "Japanese";
   return "English";
 }
-function getUILang(){const selected=document.getElementById("uiLangSelect").value;return selected==="auto"?browserUILang():selected}
-function backendUILang(){const lang=getUILang();if(lang==="Simplified Chinese")return"zh";if(lang==="Japanese")return"ja";return"en"}
+
+function getUILang(){
+  const selected=document.getElementById("uiLangSelect").value;
+  return selected==="auto"?browserUILang():selected;
+}
+
+function backendUILang(){
+  const lang=getUILang();
+  if(lang==="Simplified Chinese") return "zh";
+  if(lang==="Japanese") return "ja";
+  return "en";
+}
+
 function applyUILanguage(){
   const pack=i18n[getUILang()]||i18n.English;
-  document.querySelectorAll("[data-i18n]").forEach(el=>{const key=el.getAttribute("data-i18n");if(pack[key])el.innerText=pack[key]});
-  updateAuthUI();updateProBadge();
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key=el.getAttribute("data-i18n");
+    if(pack[key]) el.innerText=pack[key];
+  });
+  updateAuthUI();
+  updateProBadge();
 }
-function changeUILanguage(){localStorage.setItem("ui_language",document.getElementById("uiLangSelect").value);applyUILanguage();if(input.value.trim())translate()}
-function syncUILanguageToTarget(){const target=targetSelect.value;if(i18n[target]){document.getElementById("uiLangSelect").value=target;localStorage.setItem("ui_language",target);applyUILanguage();if(input.value.trim())translate()}}
-function changeTheme(){localStorage.setItem("theme_mode",document.getElementById("themeSelect").value);applyTheme()}
-function applyTheme(){const theme=localStorage.getItem("theme_mode")||"light";document.getElementById("themeSelect").value=theme;const autoDark=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;document.body.classList.toggle("dark",theme==="dark"||(theme==="auto"&&autoDark))}
-input.addEventListener("input",()=>{clearTimeout(timer);const text=input.value.trim();count.innerText=text.length;if(!text){clearResultOnly();return}const delay=document.getElementById("engineMode").value==="deepl"?300:700;statusBox.innerText=getUILang()==="Simplified Chinese"?"准备翻译...":"Preparing...";timer=setTimeout(translate,delay)});
+
+function changeUILanguage(){
+  localStorage.setItem("ui_language",document.getElementById("uiLangSelect").value);
+  applyUILanguage();
+  if(input.value.trim()) translate();
+}
+
+function syncUILanguageToTarget(){
+  const target=targetSelect.value;
+  if(i18n[target]){
+    document.getElementById("uiLangSelect").value=target;
+    localStorage.setItem("ui_language",target);
+    applyUILanguage();
+    if(input.value.trim()) translate();
+  }
+}
+
+function changeTheme(){
+  localStorage.setItem("theme_mode",document.getElementById("themeSelect").value);
+  applyTheme();
+}
+
+function applyTheme(){
+  const theme=localStorage.getItem("theme_mode")||"light";
+  document.getElementById("themeSelect").value=theme;
+  const autoDark=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;
+  document.body.classList.toggle("dark",theme==="dark"||(theme==="auto"&&autoDark));
+}
+
+input.addEventListener("input",()=>{
+  clearTimeout(timer);
+  const text=input.value.trim();
+  count.innerText=text.length;
+  if(!text){clearResultOnly();return}
+  const delay=document.getElementById("engineMode").value==="deepl"?300:700;
+  statusBox.innerText=getUILang()==="Simplified Chinese"?"准备翻译...":"Preparing...";
+  timer=setTimeout(translate,delay);
+});
 
 async function initAuth(){
   const savedUI=localStorage.getItem("ui_language");
-  if(savedUI)document.getElementById("uiLangSelect").value=savedUI;
+  if(savedUI) document.getElementById("uiLangSelect").value=savedUI;
+
   const {data}=await supabaseClient.auth.getUser();
   currentUser=data?.user||null;
-  if(currentUser){await loadProfile();await loadCloudGlossary()}
-  updateAuthUI();updateProBadge();
+
+  if(currentUser){
+    await loadProfile();
+    await loadCloudGlossary();
+  }
+
+  updateAuthUI();
+  updateProBadge();
 }
+
 async function loadProfile(){
   if(!currentUser?.email)return;
-  const {data,error}=await supabaseClient.from("profiles").select("*").eq("email",currentUser.email.toLowerCase()).maybeSingle();
-  if(!error&&data)currentProfile=data;
+  const {data,error}=await supabaseClient
+    .from("profiles")
+    .select("*")
+    .eq("email",currentUser.email.toLowerCase())
+    .maybeSingle();
+
+  if(!error && data) currentProfile=data;
 }
-function userIsPro(){if(!currentProfile?.is_pro)return false;if(!currentProfile.pro_until)return true;return new Date(currentProfile.pro_until).getTime()>Date.now()}
+
+function userIsPro(){
+  if(!currentProfile?.is_pro)return false;
+  if(!currentProfile.pro_until)return true;
+  return new Date(currentProfile.pro_until).getTime() > Date.now();
+}
+
 function updateProBadge(){
   const badge=document.getElementById("proBadge");
-  if(userIsPro()){badge.innerText="PRO"}else{badge.innerText=""}
+  if(!badge)return;
+
+  if(userIsPro()){
+    badge.innerText="PRO";
+  }else{
+    // Keep the free-usage counter hidden in the product UI.
+    badge.innerText="";
+  }
 }
+
 function updateAuthUI(){
   const loginBtn=document.querySelector(".auth-btn");
   const signupBtn=document.querySelector(".auth-primary");
   const pack=i18n[getUILang()]||i18n.English;
   if(!loginBtn||!signupBtn)return;
+
   if(currentUser){
     loginBtn.innerText=currentUser.email;
     loginBtn.onclick=()=>alert(currentUser.email);
@@ -440,78 +533,424 @@ function updateAuthUI(){
     signupBtn.onclick=()=>location.href="signup.html";
   }
 }
-async function logout(){await supabaseClient.auth.signOut();currentUser=null;currentProfile=null;updateAuthUI();updateProBadge()}
+
+async function logout(){
+  await supabaseClient.auth.signOut();
+  currentUser=null;
+  currentProfile=null;
+  updateAuthUI();
+  updateProBadge();
+}
 
 async function buyPro(plan="pro"){
   let email=currentUser?.email||"";
-  if(!email){email=prompt("请输入邮箱，用于付款后开通 Pro 会员：")}
+  if(!email){
+    email=prompt("请输入邮箱，用于付款后开通 Pro 会员：");
+  }
   if(!email)return;
+
   try{
     const res=await fetch("/.netlify/functions/create-payment",{
       method:"POST",
       headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({email,plan})
+      body:JSON.stringify({email: email.trim().toLowerCase(), plan})
     });
     const data=await res.json();
-    if(data.invoice_url){window.location.href=data.invoice_url}
-    else{alert(data.error||"支付创建失败，请稍后再试。");console.log(data)}
-  }catch(err){alert("支付接口连接失败，请检查 Netlify Function 是否已部署。")}
+    if(data.invoice_url){
+      window.location.href=data.invoice_url;
+    }else{
+      alert(data.error||"支付创建失败，请稍后再试。");
+      console.log(data);
+    }
+  }catch(err){
+    alert("支付接口连接失败，请检查 Netlify Function 是否已部署。");
+  }
 }
-function getUsage(){if(currentUser?.email)return Number(localStorage.getItem("usage_"+currentUser.email)||"0");return Number(localStorage.getItem("guest_usage")||"0")}
-function increaseUsage(){if(userIsPro())return;if(currentUser?.email)localStorage.setItem("usage_"+currentUser.email,String(getUsage()+1));else localStorage.setItem("guest_usage",String(getUsage()+1));updateProBadge()}
-function canUseTranslate(){if(userIsPro())return true;return getUsage()<LOCAL_FREE_LIMIT}
-function setTask(task){currentTask=task;if(input.value.trim())translate()}
-function changeSourceLanguage(){if(input.value.trim())translate()}
-function changeTargetLanguage(){if(input.value.trim())translate()}
-function swapLanguages(){const source=sourceSelect.value;const target=targetSelect.value;if(source!=="auto"){sourceSelect.value=target||"auto";targetSelect.value=source}else{targetSelect.value=targetSelect.value==="English"?"Simplified Chinese":"English"}if(input.value.trim())translate()}
+
+function getUsage(){
+  if(currentUser?.email){
+    return Number(localStorage.getItem("usage_"+currentUser.email)||"0");
+  }
+  return Number(localStorage.getItem("guest_usage")||"0");
+}
+
+function increaseUsage(){
+  if(userIsPro())return;
+  if(currentUser?.email){
+    localStorage.setItem("usage_"+currentUser.email,String(getUsage()+1));
+  }else{
+    localStorage.setItem("guest_usage",String(getUsage()+1));
+  }
+  updateProBadge();
+}
+
+function canUseTranslate(){
+  if(userIsPro())return true;
+  return getUsage() < LOCAL_FREE_LIMIT;
+}
+
+function setTask(task){
+  currentTask=task;
+  if(input.value.trim()) translate();
+}
+
+function changeSourceLanguage(){if(input.value.trim()) translate()}
+function changeTargetLanguage(){if(input.value.trim()) translate()}
+
+function swapLanguages(){
+  const source=sourceSelect.value;
+  const target=targetSelect.value;
+  if(source!=="auto"){
+    sourceSelect.value=target||"auto";
+    targetSelect.value=source;
+  }else{
+    targetSelect.value=targetSelect.value==="English"?"Simplified Chinese":"English";
+  }
+  if(input.value.trim()) translate();
+}
+
 function getGlossary(){return JSON.parse(localStorage.getItem("custom_glossary")||"[]")}
 function saveGlossary(list){localStorage.setItem("custom_glossary",JSON.stringify(list))}
-async function addGlossaryTerm(){const source=document.getElementById("glossarySource").value.trim();const target=document.getElementById("glossaryTarget").value.trim();if(!source||!target)return;const glossary=getGlossary();glossary.unshift({source,target});saveGlossary(glossary.slice(0,100));document.getElementById("glossarySource").value="";document.getElementById("glossaryTarget").value="";renderGlossary();if(input.value.trim())translate()}
-function deleteGlossaryTerm(index){const glossary=getGlossary();glossary.splice(index,1);saveGlossary(glossary);renderGlossary();if(input.value.trim())translate()}
-function renderGlossary(){const glossary=getGlossary();glossaryList.innerHTML="";glossary.forEach((item,index)=>{const div=document.createElement("div");div.className="glossary-item";div.innerHTML=`<span><strong>${escapeHTML(item.source)}</strong> → ${escapeHTML(item.target)}</span><button onclick="deleteGlossaryTerm(${index})">Delete</button>`;glossaryList.appendChild(div)})}
-async function loadCloudGlossary(){renderGlossary()}
+
+async function addGlossaryTerm(){
+  const source=document.getElementById("glossarySource").value.trim();
+  const target=document.getElementById("glossaryTarget").value.trim();
+  if(!source||!target)return;
+
+  const glossary=getGlossary();
+  glossary.unshift({source,target});
+  saveGlossary(glossary.slice(0,100));
+
+  document.getElementById("glossarySource").value="";
+  document.getElementById("glossaryTarget").value="";
+  renderGlossary();
+
+  if(input.value.trim()) translate();
+}
+
+function deleteGlossaryTerm(index){
+  const glossary=getGlossary();
+  glossary.splice(index,1);
+  saveGlossary(glossary);
+  renderGlossary();
+  if(input.value.trim()) translate();
+}
+
+function renderGlossary(){
+  const glossary=getGlossary();
+  glossaryList.innerHTML="";
+  glossary.forEach((item,index)=>{
+    const div=document.createElement("div");
+    div.className="glossary-item";
+    div.innerHTML=`<span><strong>${escapeHTML(item.source)}</strong> → ${escapeHTML(item.target)}</span><button onclick="deleteGlossaryTerm(${index})">Delete</button>`;
+    glossaryList.appendChild(div);
+  });
+}
+
+async function loadCloudGlossary(){
+  renderGlossary();
+}
 
 async function translate(){
-  const text=input.value.trim();if(!text)return;
+  const text=input.value.trim();
+  if(!text)return;
+
   if(!canUseTranslate()){
     result.innerHTML=`<span class="error">${getUILang()==="Simplified Chinese"?"免费次数已用完，请升级 Pro。":"Free limit reached. Please upgrade to Pro."}</span><div id="dropdown" class="dropdown"></div>`;
     statusBox.innerText=getUILang()==="Simplified Chinese"?"已达到免费限制":"Free limit reached";
-    document.getElementById("pricing").scrollIntoView({behavior:"smooth"});return;
+    document.getElementById("pricing").scrollIntoView({behavior:"smooth"});
+    return;
   }
-  const sourceLanguage=sourceSelect.value,targetLanguage=targetSelect.value,glossary=getGlossary(),engineMode=document.getElementById("engineMode").value,sentenceMode=document.getElementById("sentenceMode").checked,uiLanguage=backendUILang();
+
+  const sourceLanguage=sourceSelect.value;
+  const targetLanguage=targetSelect.value;
+  const glossary=getGlossary();
+  const engineMode=document.getElementById("engineMode").value;
+  const sentenceMode=document.getElementById("sentenceMode").checked;
+  const uiLanguage=backendUILang();
+
   const cacheKey=`cache_${currentTask}_${engineMode}_${sentenceMode}_${sourceLanguage}_${targetLanguage}_${uiLanguage}_${JSON.stringify(glossary)}_${text}`;
   const cached=localStorage.getItem(cacheKey);
-  if(cached){renderData(JSON.parse(cached));statusBox.innerText=getUILang()==="Simplified Chinese"?"来自缓存":"From cache";return}
-  statusBox.innerText=engineMode==="deepl"?(getUILang()==="Simplified Chinese"?"DeepL 正在翻译...":"DeepL translating..."):(getUILang()==="Simplified Chinese"?"AI 正在处理...":"AI processing...");
+  if(cached){
+    renderData(JSON.parse(cached));
+    statusBox.innerText=getUILang()==="Simplified Chinese"?"来自缓存":"From cache";
+    return;
+  }
+
+  statusBox.innerText=engineMode==="deepl"
+    ? (getUILang()==="Simplified Chinese"?"DeepL 正在翻译...":"DeepL translating...")
+    : (getUILang()==="Simplified Chinese"?"AI 正在处理...":"AI processing...");
+
   try{
-    const res=await fetch("/.netlify/functions/translate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text,sourceLanguage,targetLanguage,task:currentTask,glossary,engineMode,uiLanguage,sentenceMode})});
+    const res=await fetch("/.netlify/functions/translate",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        text,
+        sourceLanguage,
+        targetLanguage,
+        task:currentTask,
+        glossary,
+        engineMode,
+        uiLanguage,
+        sentenceMode
+      })
+    });
+
     const data=await res.json();
-    if(!res.ok||data.error){result.innerHTML=`<span class="error">${escapeHTML(data.error||data.detail||"Server error")}</span><div id="dropdown" class="dropdown"></div>`;statusBox.innerText=getUILang()==="Simplified Chinese"?"处理失败":"Failed";return}
-    increaseUsage();localStorage.setItem(cacheKey,JSON.stringify(data));renderData(data);saveHistory(text,data);
-  }catch(e){result.innerHTML=`<span class="error">Network error</span><div id="dropdown" class="dropdown"></div>`;statusBox.innerText="Network error"}
+
+    if(!res.ok||data.error){
+      result.innerHTML=`<span class="error">${escapeHTML(data.error||data.detail||"Server error")}</span><div id="dropdown" class="dropdown"></div>`;
+      statusBox.innerText=getUILang()==="Simplified Chinese"?"处理失败":"Failed";
+      return;
+    }
+
+    increaseUsage();
+    localStorage.setItem(cacheKey,JSON.stringify(data));
+    renderData(data);
+    saveHistory(text,data);
+
+  }catch(e){
+    result.innerHTML=`<span class="error">Network error</span><div id="dropdown" class="dropdown"></div>`;
+    statusBox.innerText="Network error";
+  }
 }
-function renderData(data){document.getElementById("engineStatus").innerText=data.engine_used||"";currentSegments=(data.segments||[]).map((seg,index)=>({id:seg.id||index+1,source:seg.source||"",selected:seg.best||"",options:seg.options||[]}));if(!currentSegments.length&&data.full_translation)currentSegments=[{id:1,source:input.value,selected:data.full_translation,options:[]}];rebuildFullText();activeSegmentIndex=null;renderSegments();statusBox.innerText=getUILang()==="Simplified Chinese"?"完成":"Done";bottomStatus.innerText=getUILang()==="Simplified Chinese"?"点击右侧任意句子，可查看多种表达。":"Click any translated sentence to see alternatives."}
-function rebuildFullText(){currentText=currentSegments.map(seg=>seg.selected).join(" ")}
-function renderSegments(){result.innerHTML="";if(!currentSegments.length){result.innerHTML='<span class="placeholder" data-i18n="placeholder">Translation will appear here</span><div id="dropdown" class="dropdown"></div>';applyUILanguage();return}currentSegments.forEach((seg,index)=>{const span=document.createElement("span");span.className="segment"+(activeSegmentIndex===index?" active":"");span.innerText=seg.selected+" ";span.onclick=e=>{e.stopPropagation();showDropdownForSegment(index)};result.appendChild(span)});const dd=document.createElement("div");dd.id="dropdown";dd.className="dropdown";result.appendChild(dd)}
-function showDropdownForSegment(index){activeSegmentIndex=index;renderSegments();const seg=currentSegments[index];const dd=document.getElementById("dropdown");dd.innerHTML="";if(!seg.options||!seg.options.length){dd.innerHTML=`<div class="dropdown-item">No alternatives</div>`}else{seg.options.forEach((opt,optIndex)=>{const item=document.createElement("div");item.className="dropdown-item"+(opt.text===seg.selected||optIndex===0?" active":"");item.innerHTML=`<div class="dropdown-label">${escapeHTML(opt.label||"Option")}</div><div class="dropdown-text">${escapeHTML(opt.text||"")}</div><div class="dropdown-meaning">${escapeHTML(opt.meaning||"")}</div>`;item.onclick=e=>{e.stopPropagation();currentSegments[index].selected=opt.text||"";rebuildFullText();renderSegments();hideDropdown()};dd.appendChild(item)})}dd.style.display="block";dropdownVisible=true}
-function toggleDropdown(event){event.stopPropagation();const dd=document.getElementById("dropdown");if(!dd||!dd.innerHTML.trim())return;dd.style.display=dropdownVisible?"none":"block";dropdownVisible=!dropdownVisible}
-function hideDropdown(){const dd=document.getElementById("dropdown");if(dd)dd.style.display="none";dropdownVisible=false}
-function copyText(event){if(event)event.stopPropagation();if(!currentText)return;navigator.clipboard.writeText(currentText);statusBox.innerText=getUILang()==="Simplified Chinese"?"已复制":"Copied"}
-function feedback(isGood){if(!currentText)return;const feedback=JSON.parse(localStorage.getItem("feedback")||"[]");feedback.push({input:input.value,output:currentText,good:isGood,time:new Date().toISOString()});localStorage.setItem("feedback",JSON.stringify(feedback));statusBox.innerText=isGood?"👍":"👎"}
+
+function renderData(data){
+  document.getElementById("engineStatus").innerText=data.engine_used||"";
+
+  currentSegments=(data.segments||[]).map((seg,index)=>({
+    id:seg.id||index+1,
+    source:seg.source||"",
+    selected:seg.best||"",
+    options:seg.options||[]
+  }));
+
+  if(!currentSegments.length&&data.full_translation){
+    currentSegments=[{id:1,source:input.value,selected:data.full_translation,options:[]}];
+  }
+
+  rebuildFullText();
+  activeSegmentIndex=null;
+  renderSegments();
+
+  statusBox.innerText=getUILang()==="Simplified Chinese"?"完成":"Done";
+  bottomStatus.innerText=getUILang()==="Simplified Chinese"
+    ?"点击右侧任意句子，可查看多种表达。"
+    :"Click any translated sentence to see alternatives.";
+}
+
+function rebuildFullText(){
+  currentText=currentSegments.map(seg=>seg.selected).join(" ");
+}
+
+function renderSegments(){
+  result.innerHTML="";
+  if(!currentSegments.length){
+    result.innerHTML='<span class="placeholder" data-i18n="placeholder">Translation will appear here</span><div id="dropdown" class="dropdown"></div>';
+    applyUILanguage();
+    return;
+  }
+
+  currentSegments.forEach((seg,index)=>{
+    const span=document.createElement("span");
+    span.className="segment"+(activeSegmentIndex===index?" active":"");
+    span.innerText=seg.selected+" ";
+    span.onclick=e=>{
+      e.stopPropagation();
+      showDropdownForSegment(index);
+    };
+    result.appendChild(span);
+  });
+
+  const dd=document.createElement("div");
+  dd.id="dropdown";
+  dd.className="dropdown";
+  result.appendChild(dd);
+}
+
+function showDropdownForSegment(index){
+  activeSegmentIndex=index;
+  renderSegments();
+
+  const seg=currentSegments[index];
+  const dd=document.getElementById("dropdown");
+  dd.innerHTML="";
+
+  if(!seg.options||!seg.options.length){
+    dd.innerHTML=`<div class="dropdown-item">No alternatives</div>`;
+  }else{
+    seg.options.forEach((opt,optIndex)=>{
+      const item=document.createElement("div");
+      item.className="dropdown-item"+(opt.text===seg.selected||optIndex===0?" active":"");
+      item.innerHTML=`
+        <div class="dropdown-label">${escapeHTML(opt.label||"Option")}</div>
+        <div class="dropdown-text">${escapeHTML(opt.text||"")}</div>
+        <div class="dropdown-meaning">${escapeHTML(opt.meaning||"")}</div>
+      `;
+      item.onclick=e=>{
+        e.stopPropagation();
+        currentSegments[index].selected=opt.text||"";
+        rebuildFullText();
+        renderSegments();
+        hideDropdown();
+      };
+      dd.appendChild(item);
+    });
+  }
+
+  dd.style.display="block";
+  dropdownVisible=true;
+}
+
+function toggleDropdown(event){
+  event.stopPropagation();
+  const dd=document.getElementById("dropdown");
+  if(!dd||!dd.innerHTML.trim())return;
+  dd.style.display=dropdownVisible?"none":"block";
+  dropdownVisible=!dropdownVisible;
+}
+
+function hideDropdown(){
+  const dd=document.getElementById("dropdown");
+  if(dd)dd.style.display="none";
+  dropdownVisible=false;
+}
+
+function copyText(event){
+  if(event)event.stopPropagation();
+  if(!currentText)return;
+  navigator.clipboard.writeText(currentText);
+  statusBox.innerText=getUILang()==="Simplified Chinese"?"已复制":"Copied";
+}
+
+function feedback(isGood){
+  if(!currentText)return;
+  const feedback=JSON.parse(localStorage.getItem("feedback")||"[]");
+  feedback.push({input:input.value,output:currentText,good:isGood,time:new Date().toISOString()});
+  localStorage.setItem("feedback",JSON.stringify(feedback));
+  statusBox.innerText=isGood?"👍":"👎";
+}
+
 function speakInput(){speak(input.value.trim(),langCode(sourceSelect.value))}
-function speakOutput(event){if(event)event.stopPropagation();speak(currentText,langCode(targetSelect.value||"English"))}
-function speak(text,lang){if(!text)return;const utterance=new SpeechSynthesisUtterance(text);if(lang)utterance.lang=lang;speechSynthesis.cancel();speechSynthesis.speak(utterance)}
-function langCode(lang){const map={"Simplified Chinese":"zh-CN","English":"en-US","Japanese":"ja-JP","Korean":"ko-KR","Spanish":"es-ES","French":"fr-FR","German":"de-DE","Russian":"ru-RU","Arabic":"ar-SA","Portuguese":"pt-PT","Italian":"it-IT","Thai":"th-TH","Vietnamese":"vi-VN","Burmese":"my-MM"};return map[lang]||""}
-function clearAll(){input.value="";count.innerText="0";clearResultOnly()}
-function clearResultOnly(){currentText="";currentSegments=[];activeSegmentIndex=null;result.innerHTML='<span class="placeholder" data-i18n="placeholder">Translation will appear here</span><div id="dropdown" class="dropdown"></div>';applyUILanguage();statusBox.innerText=(i18n[getUILang()]||i18n.English).waiting;bottomStatus.innerText=""}
-function triggerFileUpload(){document.getElementById("fileInput").click()}
-function handleFileUpload(event){const file=event.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=e=>{input.value=e.target.result.slice(0,8000);count.innerText=input.value.length;translate()};reader.readAsText(file)}
-function toggleVoiceInput(){const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SpeechRecognition){alert(getUILang()==="Simplified Chinese"?"当前浏览器不支持语音输入，请使用 Chrome。":"Voice input is not supported. Please use Chrome.");return}if(!recognition){recognition=new SpeechRecognition();recognition.continuous=false;recognition.interimResults=false;recognition.onresult=e=>{const text=e.results[0][0].transcript;input.value=input.value?input.value+" "+text:text;count.innerText=input.value.length;translate()};recognition.onend=()=>{isListening=false;statusBox.innerText=getUILang()==="Simplified Chinese"?"语音输入结束":"Voice input ended"}}if(!isListening){recognition.lang=langCode(sourceSelect.value)||"en-US";recognition.start();isListening=true;statusBox.innerText=getUILang()==="Simplified Chinese"?"正在听...":"Listening..."}}
-async function saveHistory(source,data){const resultText=data.full_translation||currentText||"";const item={source,result:resultText,from:sourceSelect.value,to:targetSelect.value,task:currentTask,engine:data.engine_used||"",time:new Date().toLocaleString()};const history=JSON.parse(localStorage.getItem("history_folded_tools")||"[]");const key=item.source+item.result;if(lastSavedKey!==key){history.unshift(item);localStorage.setItem("history_folded_tools",JSON.stringify(history.slice(0,50)));lastSavedKey=key}}
+function speakOutput(event){
+  if(event)event.stopPropagation();
+  speak(currentText,langCode(targetSelect.value||"English"));
+}
+
+function speak(text,lang){
+  if(!text)return;
+  const utterance=new SpeechSynthesisUtterance(text);
+  if(lang)utterance.lang=lang;
+  speechSynthesis.cancel();
+  speechSynthesis.speak(utterance);
+}
+
+function langCode(lang){
+  const map={
+    "Simplified Chinese":"zh-CN","English":"en-US","Japanese":"ja-JP","Korean":"ko-KR",
+    "Spanish":"es-ES","French":"fr-FR","German":"de-DE","Russian":"ru-RU",
+    "Arabic":"ar-SA","Portuguese":"pt-PT","Italian":"it-IT",
+    "Thai":"th-TH","Vietnamese":"vi-VN","Burmese":"my-MM"
+  };
+  return map[lang]||"";
+}
+
+function clearAll(){
+  input.value="";
+  count.innerText="0";
+  clearResultOnly();
+}
+
+function clearResultOnly(){
+  currentText="";
+  currentSegments=[];
+  activeSegmentIndex=null;
+  result.innerHTML='<span class="placeholder" data-i18n="placeholder">Translation will appear here</span><div id="dropdown" class="dropdown"></div>';
+  applyUILanguage();
+  statusBox.innerText=(i18n[getUILang()]||i18n.English).waiting;
+  bottomStatus.innerText="";
+}
+
+function triggerFileUpload(){
+  document.getElementById("fileInput").click();
+}
+
+function handleFileUpload(event){
+  const file=event.target.files[0];
+  if(!file)return;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    input.value=e.target.result.slice(0,8000);
+    count.innerText=input.value.length;
+    translate();
+  };
+  reader.readAsText(file);
+}
+
+function toggleVoiceInput(){
+  const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SpeechRecognition){
+    alert(getUILang()==="Simplified Chinese"?"当前浏览器不支持语音输入，请使用 Chrome。":"Voice input is not supported. Please use Chrome.");
+    return;
+  }
+
+  if(!recognition){
+    recognition=new SpeechRecognition();
+    recognition.continuous=false;
+    recognition.interimResults=false;
+    recognition.onresult=e=>{
+      const text=e.results[0][0].transcript;
+      input.value=input.value?input.value+" "+text:text;
+      count.innerText=input.value.length;
+      translate();
+    };
+    recognition.onend=()=>{
+      isListening=false;
+      statusBox.innerText=getUILang()==="Simplified Chinese"?"语音输入结束":"Voice input ended";
+    };
+  }
+
+  if(!isListening){
+    recognition.lang=langCode(sourceSelect.value)||"en-US";
+    recognition.start();
+    isListening=true;
+    statusBox.innerText=getUILang()==="Simplified Chinese"?"正在听...":"Listening...";
+  }
+}
+
+async function saveHistory(source,data){
+  const resultText=data.full_translation||currentText||"";
+  const item={
+    source,
+    result:resultText,
+    from:sourceSelect.value,
+    to:targetSelect.value,
+    task:currentTask,
+    engine:data.engine_used||"",
+    time:new Date().toLocaleString()
+  };
+
+  const history=JSON.parse(localStorage.getItem("history_folded_tools")||"[]");
+  const key=item.source+item.result;
+  if(lastSavedKey!==key){
+    history.unshift(item);
+    localStorage.setItem("history_folded_tools",JSON.stringify(history.slice(0,50)));
+    lastSavedKey=key;
+  }
+}
+
 document.addEventListener("click",hideDropdown);
 window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change",applyTheme);
-function escapeHTML(str){return String(str).replace(/[&<>'"]/g,tag=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[tag]||tag))}
-applyTheme();applyUILanguage();renderGlossary();initAuth();
+
+function escapeHTML(str){
+  return String(str).replace(/[&<>'"]/g,tag=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[tag]||tag));
+}
+
+applyTheme();
+applyUILanguage();
+renderGlossary();
+initAuth();
 </script>
 </body>
 </html>
